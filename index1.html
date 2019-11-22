@@ -52,9 +52,9 @@
 
         $.ajax({
             method: 'GET',
-            url: 'https://www.googleapis.com/youtube/v3/channels/list?',
+            url: 'https://www.googleapis.com/youtube/v3/channels?',
             data: {
-                part: 'snippet',
+                part: 'snippet, contentDetails',
                 forUsername: channelName,
                 key: 'AIzaSyDvZJroibDl30fxnmsNsCZO1o-9N-Em5zs'
             },
