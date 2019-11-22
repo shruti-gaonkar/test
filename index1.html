@@ -21,7 +21,7 @@
          * https://developers.google.com/explorer-help/guides/code_samples#javascript
          */
 
-        function authenticate() {
+        /*function authenticate() {
             return gapi.auth2.getAuthInstance()
                 .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
                 .then(function () { console.log("Sign-in successful"); },
@@ -46,6 +46,19 @@
         // ZTOItSbUVzkJ7pCDz8CV8Sw7
         gapi.load("client:auth2", function () {
             gapi.auth2.init({ client_id: "272275771173-d5q16ahh8me33ss0ju8o8vuh548b2894.apps.googleusercontent.com" });
+        });*/
+
+        $.ajax({
+            method: 'GET',
+            url: 'https://www.googleapis.com/youtube/v3/channels?',
+            data: {
+                part: 'contentDetails',
+                forUsername: channelName,
+                key: 'AIzaSyDvZJroibDl30fxnmsNsCZO1o-9N-Em5zs'
+            },
+            dataType: 'jsonp'
+        }).then(function (response) {
+            console.log(response);
         });
     </script>
     <button onclick="authenticate().then(loadClient)">authorize and load</button>
